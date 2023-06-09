@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: consolas;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: grey;
+    height: 350px;
+    max-width: 250px;
+}
+
+.display {
+    flex: 1;
+    background-color: black;
+    color: white;
+    width: 95%;
+    text-align:end;
+    font-size: 25px;
+    margin: 6px;
+    margin-bottom: -2px;
+    border-radius: 5px;
+}
+
+.display p {
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.controls {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 95%;
+    margin: 10px;
+    margin-bottom: 6px;
+    gap: 3px;
+}   
+
+.zero {
+    grid-column: span 2;
+}
+
+.controls button {
+    background-color: #217C7E;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.controls button:hover {
+    background-color: white;
+    color: black;
+}
+
+.controls .clear {
+    background-color: dodgerblue;
+}
+
+.controls .backspace ,.controls .sign{
+    background-color: dodgerblue;
+}
+
+.controls .divide,.controls .multiply,.controls .subtract,.controls .add {
+    background-color: #FF8F1F;
+}
+
+.controls .enter {
+    background-color: red;
+}
