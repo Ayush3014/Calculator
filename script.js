@@ -28,20 +28,20 @@ numbers.forEach(element => {
 
 operators.forEach(element => {
     element.addEventListener("click", () => {
-        display.textContent += element.value;
         if(first !== "" && second !== "")
         {
             calculate();
         }
-        op = element.value;
+        if(op === "")
+        {
+            display.textContent += element.value;
+            op = element.value;
+        }
     });
 });
 
 function calculate()
 {
-    console.log("First:" + first);
-    console.log("Operator;" + op);
-    console.log("Second:" + second);
     const num1 = parseFloat(first);
     const num2 = parseFloat(second);
     let result;
@@ -64,7 +64,7 @@ function calculate()
             break;
     }
 
-    display.textContent = result;
+    display.textContent = result.toFixed(2);
 
     first = result.toString();
     second = "";
@@ -86,15 +86,23 @@ equal.addEventListener('click', () => {
 });
 
 decimal.addEventListener('click', () => {
-    display.textContent += decimal.value;
     if(op === "")
     {
-        first += decimal.value;
+        if(!first.includes("."))
+        {
+            first += decimal.value;
+            display.textContent = first;
+        }
     }
     else 
     {
-        second += decimal.value;
-    }
+        if(!second.includes("."))
+        {
+            second += decimal.value;
+            display.textContent = display.textContent.slice(0,-(second.length - 1));
+            display.textContent += second; 
+        }
+    } 
 });
 
 backspace.addEventListener('click', () => {
